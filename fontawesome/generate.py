@@ -39,6 +39,9 @@ def main(uri, version, include_aliases):
             if terms != None:
                 names += terms
         for name in names:
+            if len(icon['unicode']) != 4:
+                # Skipping 1 byte chars
+                continue
             # dict entry with character code
             entry = "'%s': '\\u%s'," % (name, icon['unicode'])
             indent_to = 50
